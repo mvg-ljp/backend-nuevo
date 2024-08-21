@@ -9,9 +9,9 @@ router.get("/", async (req, res) => {
         const { limit = 10, page = 1, sort, query } = req.query;
 
         const productos = await productManager.getProducts({
-            limit: parseInt(limit),
-            page: parseInt(page),
-            sort,
+            limit: parseInt(limit, 10),
+            page: parseInt(page, 1),
+            sort:{title: 1 },
             query,
         });
 
@@ -29,7 +29,7 @@ router.get("/", async (req, res) => {
         });
 
     } catch (error) {
-        console.error("Error al obtener productos", error);
+        console.error("Error al obtener los productos", error);
         res.status(500).json({
             status: 'error',
             error: "Error interno del servidor"
@@ -52,7 +52,7 @@ router.get("/:pid", async (req, res) => {
 
         res.json(producto);
     } catch (error) {
-        console.error("Error al obtener producto", error);
+        console.error("Error al obtener los producto", error);
         res.status(500).json({
             error: "Error interno del servidor"
         });
