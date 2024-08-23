@@ -24,5 +24,5 @@ app.use("/api/carts", cartsRouter);
 app.use("/", viewsRouter);
 
 app.listen(PUERTO, () => {
-    console.log(`Servidor escuchando en el puerto ${PUERTO}`);
+    console.log(`Servidor escuchando en el puerto ${8080}`);
 });
